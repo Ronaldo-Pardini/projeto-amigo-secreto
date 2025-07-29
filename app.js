@@ -35,6 +35,19 @@ function atualizaLista() {
         novoItem.textContent = amigos[i]; // Define o texto do novo item
 
         // Adiciona o novo item à lista
-        lista.appendChild(novoItem);
+        lista.appendChild(novoItem); 
     }
+}
+
+function sortearAmigo() {
+    //Validar que há amigos disponíveis: Antes de sortear, verificar se o array amigos não está vazio.
+    // Gerar um índice aleatório: Usar Math.random() e Math.floor() para selecionar um índice aleatório do array.
+    // Obter o nome sorteado: Utilizar o índice aleatório para acessar o nome correspondente no array.
+    // Mostrar o resultado: Atualizar o conteúdo do elemento de resultado usando document.getElementById() e innerHTML para exibir o amigo sorteado.
+    if (amigos.length != 0) {
+        let indice = Math.floor(Math.random()*amigos.length);
+        let amigoSorteado = document.getElementById('resultado');
+        amigoSorteado.innerHTML = 'Seu amigo secreto é ' + amigos[indice];
+    }
+    return;
 }
