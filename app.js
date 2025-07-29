@@ -10,11 +10,31 @@ function adicionarAmigo() {
     let nome = document.querySelector('input').value;
     if (nome =="") {
         alert('Por favor, insira um nome.');
-        return
     }
     else {
         amigos.push(nome)
         nome = document.querySelector('input');
         nome.value = '';
+        atualizaLista();
+    }
+    return
+}
+
+function atualizaLista() {
+    // Obter o elemento da lista: Utilize document.getElementById() ou document.querySelector() para selecionar a lista onde os amigos serão exibidos.
+    // Limpar a lista existente: Defina lista.innerHTML = "" para garantir que não haja duplicados ao atualizar.
+    // Percorrer o array: Use um loop for para percorrer o array amigos e criar elementos de lista (<li>) para cada nome.
+    // Adicionar elementos à lista: Para cada amigo, crie um novo elemento de lista.
+    let lista = document.getElementById('listaAmigos');
+    lista.innerHTML = "";
+    
+
+    for (let i = 0; i <= amigos.length; i++) {
+        // Cria um novo item de lista
+        let novoItem = document.createElement("li");
+        novoItem.textContent = amigos[i]; // Define o texto do novo item
+
+        // Adiciona o novo item à lista
+        lista.appendChild(novoItem);
     }
 }
